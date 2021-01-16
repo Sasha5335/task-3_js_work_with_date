@@ -19,17 +19,17 @@ class Student extends User {
 
 	getCourse() {
 		const thisYear = new Date().getFullYear();
-		const course = new Date().getFullYear() - this.year;
+		const course = thisYear - this.year.getFullYear();
 
-		if (course + 1 === 0) {
-			return `Your corse ${1}`
-		}
 		if (course > 5 || course < 0) {
-			throw RangeError()
+			throw RangeError('You are not a student yet');
 		}
-		return `Your corse ${course}`
+		if (+course === 0) {
+			return `Your corse ${1}`;
+		}
+		return `Your corse ${course}`;
 	}
 }
 
 
-const student = new Student('Test', 'Testovich', new Date().getFullYear() - 3)
+const student = new Student('Test', 'Testovich', new Date('2021'));
