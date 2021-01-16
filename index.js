@@ -22,7 +22,7 @@ class Student extends User {
 		const course = thisYear - this.year.getFullYear();
 
 		if (course > 5 || course < 0) {
-			throw RangeError('You are not a student yet');
+			throw RangeError('You are not a student yet!');
 		}
 		if (+course === 0) {
 			return `Your corse ${1}`;
